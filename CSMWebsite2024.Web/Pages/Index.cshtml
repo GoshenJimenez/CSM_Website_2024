@@ -1,0 +1,19 @@
+﻿@page
+@model Index
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    @{
+        foreach (var post in Model.Posts) {             
+            <h3>@post.Title</h3>
+            <p>@post.Description</p>
+            <hr />
+        }
+    }
+
+
+</div>
