@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSMWebsite2024.Contracts", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSMWebsite2024.EntityFramework", "CSMWebsite2024.EntityFramework\CSMWebsite2024.EntityFramework.csproj", "{808DA252-2D3F-4527-BC4A-821F40248AE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSMWebsite2024.Services", "CSMWebsite2024.Services\CSMWebsite2024.Services.csproj", "{ADC8357C-267D-4337-8323-67A6066CFB5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSMWebsite2024.Services", "CSMWebsite2024.Services\CSMWebsite2024.Services.csproj", "{ADC8357C-267D-4337-8323-67A6066CFB5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
