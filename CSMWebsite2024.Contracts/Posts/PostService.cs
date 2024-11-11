@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CSMWebsite2024.Contracts.Posts
 {
 	public interface IPostService : IService<Post> 
-	{ 
+	{
 
 	}
 }

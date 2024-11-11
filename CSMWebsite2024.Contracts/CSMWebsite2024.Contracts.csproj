@@ -10,4 +10,8 @@
     <ProjectReference Include="..\CSMWebsite2024.Data\CSMWebsite2024.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+
 </Project>
