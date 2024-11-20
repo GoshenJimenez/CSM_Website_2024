@@ -42,7 +42,7 @@ namespace CSMWebsite2024.Web.Pages.Posts
             else
             {
                 await _postService.UpdateAsync(Item);
-                return RedirectPermanent("~/posts");                
+                return RedirectPermanent("~/posts?sortBy=DateUpdated&sortAsc=false");                
             }
         }
     }

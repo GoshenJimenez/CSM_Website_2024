@@ -26,29 +26,29 @@
             <th scope="col">
                 Title
                 <div class="btn-group" role="group" aria-label="">
-                    <a href="~/index?sortBy=Title&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
-                    <a href="~/index?sortBy=Title&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
+                    <a href="~/posts?sortBy=Title&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
+                    <a href="~/posts?sortBy=Title&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
                 </div>
             </th>
             <th scope="col">
                 Description
                 <div class="btn-group" role="group" aria-label="">
-                    <a href="~/index?sortBy=Description&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
-                    <a href="~/index?sortBy=Description&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
+                    <a href="~/posts?sortBy=Description&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
+                    <a href="~/posts?sortBy=Description&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
                 </div>
             </th>
             <th scope="col">
                 Date Updated
                 <div class="btn-group" role="group" aria-label="">
-                    <a href="~/index?sortBy=DateUpdated&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
-                    <a href="~/index?sortBy=DateUpdated&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
+                    <a href="~/posts?sortBy=DateUpdated&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
+                    <a href="~/posts?sortBy=DateUpdated&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
                 </div>
             </th>
             <th scope="col">
                 Date Created
                 <div class="btn-group" role="group" aria-label="">
-                    <a href="~/index?sortBy=DateCreated&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
-                    <a href="~/index?sortBy=DateCreated&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
+                    <a href="~/posts?sortBy=DateCreated&sortAsc=false" type="button" class="btn btn-secondary">&lt;</a>
+                    <a href="~/posts?sortBy=DateCreated&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
                 </div>
             </th>
             <th></th>
@@ -82,7 +82,7 @@
                 prev = (Model.SearchParams!.PageIndex!.Value - 1) < 1 ? 1 : (Model.SearchParams!.PageIndex!.Value - 1);
 
                 <li class="page-item">
-                    <a class="page-link" href="~/index?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(prev)">Previous</a>
+                    <a class="page-link" href="~/posts?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(prev)">Previous</a>
                 </li>
             }
         }
@@ -95,7 +95,7 @@
                 next = (Model.SearchParams!.PageIndex!.Value + 1) > Model.SearchParams!.PageCount ? Model.SearchParams!.PageCount.Value : (Model.SearchParams!.PageIndex!.Value + 1);
 
                 <li class="page-item">
-                    <a class="page-link" href="~/index?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(next)">Next</a>
+                    <a class="page-link" href="~/posts?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(next)">Next</a>
                 </li>
             }
         }
@@ -107,7 +107,7 @@
 @section Scripts {
     <script>
         function search() {
-            window.location = "../index?sortBy=Title&sortAsc=false&searchBy=" + $("#searchBy").val() + "&keyword=" + $("#keyword").val()
+            window.location = "../posts?sortBy=Title&sortAsc=false&searchBy=" + $("#searchBy").val() + "&keyword=" + $("#keyword").val()
         }
     </script>
 }
