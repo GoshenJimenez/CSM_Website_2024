@@ -57,6 +57,7 @@ namespace CSMWebsite2024.Services
 				{
 					oldEntity.Title = entity.Title;
 					oldEntity.Description = entity.Description;
+					oldEntity.UpdatedAt = DateTime.UtcNow;
 
 					_repository.Update(oldEntity);
 					await _repository.SaveChangesAsync();

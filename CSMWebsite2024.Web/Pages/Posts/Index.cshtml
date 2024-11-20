@@ -51,16 +51,20 @@
                     <a href="~/index?sortBy=DateCreated&sortAsc=true" type="button" class="btn btn-secondary">&gt;</a>
                 </div>
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var posts in Model.Posts)
+        @foreach (var post in Model.Posts)
         {
             <tr>
-                <td>@posts.Title</td>
-                <td>@posts.Description</td>
-                <td>@posts.UpdatedAt</td>
-                <td>@posts.CreatedAt</td>
+                <td>@post.Title</td>
+                <td>@post.Description</td>
+                <td>@post.UpdatedAt</td>
+                <td>@post.CreatedAt</td>
+                <td>
+                    <a href="~/posts/update?id=@post.Id" type="button" class="btn btn-secondary">Edit</a>
+                </td>
             </tr>
         }
     </tbody>

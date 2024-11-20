@@ -1,0 +1,30 @@
+﻿@page
+@model CSMWebsite2024.Web.Pages.Posts.Update
+
+
+
+@{
+    if(Model.Item == null)
+    {
+        <h2>No record found</h2>
+    }
+    else
+    {        
+        <form method="post">
+            <div class="mb-3">
+                <input type="hidden" asp-for="@Model.Item.Id" value="@Model.Item.Id" />
+                <label for="@Model.Item.Title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="@Model.Item.Title" aria-describedby="titleHelp" asp-for="@Model.Item.Title">
+                <div id="titleHelp" class="form-text">Please input a title for your post.</div>
+            </div>
+            <div class="mb-3">
+                <label for="@Model.Item.Description" class="form-label">Description</label>
+                <textarea class="form-control" id="@Model.Item.Description" rows="3" asp-for="@Model.Item.Description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    }
+}
+
+
+
