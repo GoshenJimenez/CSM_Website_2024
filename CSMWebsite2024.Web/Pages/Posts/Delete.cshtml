@@ -1,5 +1,5 @@
 ﻿@page
-@model CSMWebsite2024.Web.Pages.Posts.Update
+@model CSMWebsite2024.Web.Pages.Posts.Delete
 
 
 
@@ -11,19 +11,19 @@
     else
     {        
         <form method="post">
-            <h1>Update this Post</h1>
+            <h1>Delete this Post</h1>
             <div class="mb-3">
                 <input type="hidden" asp-for="@Model.Item.Id" value="@Model.Item.Id" />
                 <label for="@Model.Item.Title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="@Model.Item.Title" aria-describedby="titleHelp" asp-for="@Model.Item.Title">
+                <input type="text" class="form-control" id="@Model.Item.Title" aria-describedby="titleHelp" asp-for="@Model.Item.Title" disabled>
                 <div id="titleHelp" class="form-text">Please input a title for your post.</div>
             </div>
             <div class="mb-3">
                 <label for="@Model.Item.Description" class="form-label">Description</label>
-                <textarea class="form-control" id="@Model.Item.Description" rows="3" asp-for="@Model.Item.Description"></textarea>
+                <textarea class="form-control" id="@Model.Item.Description" rows="3" asp-for="@Model.Item.Description" disabled></textarea>
             </div>
             <a href="~/posts" class="btn btn-success">Back</a>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
     }
 }

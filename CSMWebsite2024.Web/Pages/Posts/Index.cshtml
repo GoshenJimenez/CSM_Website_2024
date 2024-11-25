@@ -52,6 +52,7 @@
                 </div>
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -64,6 +65,9 @@
                 <td>@post.CreatedAt</td>
                 <td>
                     <a href="~/posts/update?id=@post.Id" type="button" class="btn btn-secondary">Edit</a>
+                </td>
+                <td>
+                    <a href="#" type="button" class="btn btn-danger" onclick="confirmDelete('@post.Id','@post.Title')">Delete</a>
                 </td>
             </tr>
         }
@@ -81,9 +85,9 @@
                 int prev = 1;
                 prev = (Model.SearchParams!.PageIndex!.Value - 1) < 1 ? 1 : (Model.SearchParams!.PageIndex!.Value - 1);
 
-                <li class="page-item">
-                    <a class="page-link" href="~/posts?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(prev)">Previous</a>
-                </li>
+                    <li class="page-item">
+                        <a class="page-link" href="~/posts?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(prev)">Previous</a>
+                    </li>
             }
         }
         <li class="page-item active"><a class="page-link" href="#">@Model.SearchParams.PageIndex of @(Model.SearchParams!.PageCount)</a></li>
@@ -94,9 +98,9 @@
                 int next = 1;
                 next = (Model.SearchParams!.PageIndex!.Value + 1) > Model.SearchParams!.PageCount ? Model.SearchParams!.PageCount.Value : (Model.SearchParams!.PageIndex!.Value + 1);
 
-                <li class="page-item">
-                    <a class="page-link" href="~/posts?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(next)">Next</a>
-                </li>
+                    <li class="page-item">
+                        <a class="page-link" href="~/posts?@(paramString)&pageSize=@(Model.SearchParams!.PageSize)&pageIndex=@(next)">Next</a>
+                    </li>
             }
         }
 
@@ -104,10 +108,38 @@
     </ul>
 </nav>
 
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete this Post?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this post?
+                <p id="deleteTitle"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <a id="deleteLink" href="#" type="button" class="btn btn-danger">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @section Scripts {
     <script>
+       
+
         function search() {
             window.location = "../posts?sortBy=Title&sortAsc=false&searchBy=" + $("#searchBy").val() + "&keyword=" + $("#keyword").val()
+        }
+
+        function confirmDelete(id, title) {
+            $("#deleteTitle").html(title);
+            $("#deleteLink").attr("href", "posts/delete?id=" + id);
+            $("#deleteModal").modal('show');
         }
     </script>
 }
