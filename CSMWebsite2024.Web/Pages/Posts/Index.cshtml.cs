@@ -22,7 +22,7 @@ namespace CSMWebsite2024.Web.Pages.Posts
             _postService = postService;
         }
 
-        public async Task OnGet(string? keyword = "", string? searchBy = "", string? sortBy = null, string? sortAsc = "true", int pageSize = 5, int pageIndex = 1)
+        public async Task OnGet(string? keyword = "", string? searchBy = "", string? sortBy = null, string? sortAsc = "true", int pageSize = 5, int pageIndex = 1, bool? isDeleted = false)
         {
             if (SearchParams == null)
             {
@@ -33,11 +33,12 @@ namespace CSMWebsite2024.Web.Pages.Posts
                     SearchBy = searchBy,
                     Keyword = keyword,
                     PageIndex = pageIndex,
-                    PageSize = pageSize
+                    PageSize = pageSize,
+                    IsDeleted = isDeleted
                 };
             }
 
-            var posts = (await _postService.GetAllAsync()).ToList();
+            var posts = (await _postService.GetAllAsync()).ToList().Where(a => a.IsDeleted == isDeleted).ToList();
 
             if (!string.IsNullOrEmpty(SearchParams.SearchBy) && !string.IsNullOrEmpty(SearchParams.Keyword))
             {
@@ -115,6 +116,7 @@ namespace CSMWebsite2024.Web.Pages.Posts
             public int? PageSize { get; set; }
             public int? PageIndex { get; set; }
             public int? PageCount { get; set; }
+            public bool? IsDeleted{ get; set; }
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿@page
-@model CSMWebsite2024.Web.Pages.Posts.Delete
+﻿@page "/posts/soft-delete"
+@model CSMWebsite2024.Web.Pages.Posts.SoftDelete
 
 
 
@@ -23,7 +23,7 @@
                 <textarea class="form-control" id="@Model.Item.Description" rows="3" asp-for="@Model.Item.Description" disabled></textarea>
             </div>
             <a href="~/posts" class="btn btn-success">Back</a>
-            <button type="submit" class="btn btn-danger">Hard Delete</button>
+            <button type="submit" class="btn btn-danger">Soft Delete</button>
         </form>
     }
 }

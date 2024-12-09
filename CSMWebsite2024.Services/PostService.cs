@@ -47,7 +47,34 @@ namespace CSMWebsite2024.Services
 			return _repository.All().FirstOrDefault(a => a.Id == id);
 		}
 
-		public async Task UpdateAsync(Post? entity)
+        public async Task SoftDeleteAsync(Guid? id)
+        {
+            Post? entity = _repository.All().FirstOrDefault(a => a.Id == id);
+
+            if (entity != null)
+            {
+                entity.IsDeleted = true;
+                entity.UpdatedAt = DateTime.UtcNow;
+
+                _repository.Update(entity);
+                await _repository.SaveChangesAsync();
+			}
+        }
+        public async Task UndeleteAsync(Guid? id)
+        {
+            Post? entity = _repository.All().FirstOrDefault(a => a.Id == id);
+
+            if (entity != null)
+            {
+                entity.IsDeleted = false;
+                entity.UpdatedAt = DateTime.UtcNow;
+
+                _repository.Update(entity);
+                await _repository.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateAsync(Post? entity)
 		{
 			if (entity != null)
 			{
